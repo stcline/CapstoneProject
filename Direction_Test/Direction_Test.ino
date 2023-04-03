@@ -17,7 +17,7 @@ float sdistance1, sdistance2;
 bool movementL, movementR;
 bool enterNums;
 char enteredNums;
-int x;
+int x;//
 int angle;
 const byte ROWS = 4; //four rows
 const byte COLS = 4; //four columns
