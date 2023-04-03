@@ -16,8 +16,8 @@ long sduration1, sduration2;
 float sdistance1, sdistance2;
 bool movementL, movementR;
 bool enterNums;
-char enteredNums;
-int x;//
+String enteredNums;
+int x;
 int angle;
 const byte ROWS = 4; //four rows
 const byte COLS = 4; //four columns
@@ -112,13 +112,13 @@ void getDirection(int d1, int d2, int s1, int s2)
   if ((d1 < (s1-7)))
   {
     Serial.println("LEFT");
-    angle1=atan(d1/x);
+    angle1=atan2(d1/x);
     angle=angle1*(180/3.14159)
   }
   if ((d2 < (s2-7)))
   {
     Serial.println("RIGHT");
-    angle1=atan(d2/x);
+    angle1=atan2(d2/x);
     angle=angle1*(180/3.14159)
 
 
@@ -127,7 +127,7 @@ void getDirection(int d1, int d2, int s1, int s2)
 }
 void getNumbers()
 {
-  char customKey=customKeypad.getKey();
+  String customKey=customKeypad.getKey();
   if (customKey){
     if (customKey != 'A'){
       enteredNums = enteredNums+customKey;
