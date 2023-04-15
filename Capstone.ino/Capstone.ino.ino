@@ -1,3 +1,5 @@
+#include <Servo.h>
+
 //Pins used: 2345,54329876//Change some pins
 
 // Include Libraries
@@ -5,11 +7,13 @@
 #include <Keypad.h>
 
 
+
 // Define pins for distance sensors
 #define trigPin1 2
 #define echoPin1 30
 #define trigPin2 3
 #define echoPin2 31
+
 
 // define global variables
 long sduration1, sduration2;
@@ -21,6 +25,11 @@ int x;
 int angle;
 const byte ROWS = 4; //four rows
 const byte COLS = 4; //four columns
+Servo turnS;
+Servo shootS;
+int ena=6;
+int in1=32;
+int in2=33;
 //define the cymbols on the buttons of the keypads
 char hexaKeys[ROWS][COLS] = {
   {'1','2','3','A'},
@@ -43,6 +52,11 @@ pinMode(trigPin1, OUTPUT);
 pinMode(echoPin1, INPUT);
 pinMode(trigPin2, OUTPUT);
 pinMode(echoPin2, INPUT);
+pinMode(ena, OUTPUT);
+pinMode(in1, OUTPUT);
+pinMode(in2, OUTPUT);
+turnS.attach(4);
+shootS.attach(5);
 // Get Starting Positions
 
 
@@ -95,6 +109,7 @@ if (enterNums == false){
 }
 if (enterNums == true) {
   getDirection(distance1, distance2, sdistance1, sdistance2);
+  shootEmJohn(angle);
   delay(100);
 }
 }
@@ -133,6 +148,19 @@ void getNumbers()
     }
   }
   
+}
+void shootEmJohn(a)
+{
+  turnS.write(a);
+  digitalWrite(in1, LOW);
+  digitalWrite(in2, HIGH);
+  analogWrite(ena, 255);
+  delay(200);
+  shootS.write(30);
+  delay(1000);
+  turnS.write(-a);
+  shootS.write(0);
+  analogWrite(ena,0);  
 }
 
 
