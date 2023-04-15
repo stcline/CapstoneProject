@@ -1,8 +1,12 @@
+#include <Key.h>
+#include <Keypad.h>
+
+#include <Servo.h>
+
 //Pins used: 2345,54329876//Change some pins
 
 // Include Libraries
-#include <Servo.h>
-#include <Keypad.h>
+
 
 
 // Define pins for distance sensors
@@ -16,7 +20,7 @@ long sduration1, sduration2;
 float sdistance1, sdistance2;
 bool movementL, movementR;
 bool enterNums;
-String enteredNums;
+char enteredNums;
 int x;
 int angle;
 const byte ROWS = 4; //four rows
@@ -112,14 +116,14 @@ void getDirection(int d1, int d2, int s1, int s2)
   if ((d1 < (s1-7)))
   {
     Serial.println("LEFT");
-    angle1=atan2(d1/x);
-    angle=angle1*(180/3.14159)
+    angle1=atan(d1/x);
+    angle=angle1*(180/3.14159);
   }
   if ((d2 < (s2-7)))
   {
     Serial.println("RIGHT");
-    angle1=atan2(d2/x);
-    angle=angle1*(180/3.14159)
+    angle1=atan(d2/x);
+    angle=angle1*(180/3.14159);
 
 
   }
@@ -127,7 +131,7 @@ void getDirection(int d1, int d2, int s1, int s2)
 }
 void getNumbers()
 {
-  String customKey=customKeypad.getKey();
+  char customKey=customKeypad.getKey();
   if (customKey){
     if (customKey != 'A'){
       enteredNums = enteredNums+customKey;
