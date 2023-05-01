@@ -1,4 +1,5 @@
-#include <Servo.h>
+#include <FastTrig.h>
+
 
 //Pins used: 2345,54329876//Change some pins
 
@@ -11,8 +12,7 @@
 // Define pins for distance sensors
 #define trigPin1 2
 #define echoPin1 30
-#define trigPin2 3
-#define echoPin2 31
+
 
 
 // define global variables
@@ -22,7 +22,7 @@ bool movementL, movementR;
 bool enterNums;
 String enteredNums;
 int x;
-int angle;
+float angle;
 const byte ROWS = 4; //four rows
 const byte COLS = 4; //four columns
 Servo turnS;
@@ -45,13 +45,13 @@ Keypad customKeypad = Keypad( makeKeymap(hexaKeys), rowPins, colPins, ROWS, COLS
 
 void setup()
 {
-
+movementL = false;
 Serial.begin (9600);
+Serial.println("START");
 // PinModes
 pinMode(trigPin1, OUTPUT);
 pinMode(echoPin1, INPUT);
-pinMode(trigPin2, OUTPUT);
-pinMode(echoPin2, INPUT);
+
 pinMode(ena, OUTPUT);
 pinMode(in1, OUTPUT);
 pinMode(in2, OUTPUT);
@@ -67,17 +67,12 @@ digitalWrite(trigPin1, HIGH);
 delayMicroseconds(10);
 digitalWrite(trigPin1, LOW);
 sduration1 = pulseIn(echoPin1, HIGH);
-// Use Ultrasonic Right
-digitalWrite(trigPin2, LOW);
-delayMicroseconds(2);
-digitalWrite(trigPin2, HIGH);
-delayMicroseconds(10);
-digitalWrite(trigPin2, LOW);
-sduration2 = pulseIn(echoPin2, HIGH);
+
 // Calculate distance
 sdistance1 = sduration1 * 0.034 / 2;
-sdistance2 = sduration2 * 0.034 / 2;
+Serial.println(sdistance1);
 enterNums = false;
+shootS.write(40);
 }
 
 void loop() {
@@ -92,75 +87,68 @@ digitalWrite(trigPin1, HIGH);
 delayMicroseconds(10);
 digitalWrite(trigPin1, LOW);
 duration1 = pulseIn(echoPin1, HIGH);
-// Use Ultrasonic Right
-digitalWrite(trigPin2, LOW);
-delayMicroseconds(2);
-digitalWrite(trigPin2, HIGH);
-delayMicroseconds(10);
-digitalWrite(trigPin2, LOW);
-duration2 = pulseIn(echoPin2, HIGH);
+
 // Calculate distance
 distance1 = duration1 * 0.034 / 2;
-distance2 = duration2 * 0.034 / 2;
-
+delay(400);
 // Test print
 if (enterNums == false){
   getNumbers();
 }
 if (enterNums == true) {
-  getDirection(distance1, distance2, sdistance1, sdistance2);
-  shootEmJohn(angle);
+  getDirection(distance1, sdistance1, x);
+  if (movementL == true) {
+    shootEmJohn(angle);
+  }
   delay(100);
 }
 }
 // Test print function
 
-void getDirection(int d1, int d2, int s1, int s2)
+void getDirection(int d1, int s1, int x)
 {
   int angle1;
-  if ((d1 < (s1-7)))
+  if ((d1 < (s1-10)))
   {
-    Serial.println("LEFT");
-    angle1=atan2(d1/x);
-    angle=angle1*(180/3.14159)
+  Serial.println("TARGET");
+  Serial.println(d1);
+  Serial.println(x);
+  angle = atan2(d1,x);
+  Serial.println(angle);
+  angle=angle*(180/3.14159);
+  Serial.println(angle);
+  movementL=true;
   }
-  if ((d2 < (s2-7)))
-  {
-    Serial.println("RIGHT");
-    angle1=atan2(d2/x);
-    angle=angle1*(180/3.14159)
-
-
-  }
-  
 }
 void getNumbers()
 {
-  String customKey=customKeypad.getKey();
+  char customKey=customKeypad.getKey();
   if (customKey){
     if (customKey != 'A'){
+      Serial.println(customKey);
       enteredNums = enteredNums+customKey;
-
+      Serial.println(enteredNums.toInt());
     }
     if (customKey == 'A'){
-      x = int(enteredNums);
+      x = enteredNums.toInt();
       enterNums = true;
     }
   }
   
 }
-void shootEmJohn(a)
+void shootEmJohn(int a)
 {
   turnS.write(a);
   digitalWrite(in1, LOW);
   digitalWrite(in2, HIGH);
   analogWrite(ena, 255);
   delay(200);
-  shootS.write(30);
+  shootS.write(130);
   delay(1000);
   turnS.write(-a);
-  shootS.write(0);
-  analogWrite(ena,0);  
+  shootS.write(40);
+  analogWrite(ena,0);
+  movementL=false;  
 }
 
 
