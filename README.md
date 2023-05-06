@@ -121,7 +121,7 @@ We also learned lessons in work time usage. Pushing a large project twords the e
 - 1 Qunqi 400 tie Point Experiment Mini Breadboard (Can be found on Amazon) $6 Model Num: 8541770369
 - OWOFYDR 100 pcs 5mm Green LED Diode Lights (Only need 2 out of 100, Can be found on Amazon) $0.14 per LED, 7 per pack Model Num:OWO-LED-1008
 
-###Non-Specific Parts
+### Non-Specific Parts
 
 - Solder
 - Soldering Iron
