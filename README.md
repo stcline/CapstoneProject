@@ -39,7 +39,7 @@ The flywheel is a simple device that simply has two motors that spin up wheels. 
 
 ### Magazine
 
-The magazine is what holds the nerf darts as well as pushes the darts into the flywheel. This piece is directly mounted to the flywheel. Using one servo and a custom designed servo horn and a very long 35mm 3M screw as well as a hex nut we are able to push the dart forward into the fly wheel.
+The magazine is what holds the nerf darts as well as pushes the darts into the flywheel. This piece is directly mounted to the flywheel. Using one servo and a custom designed servo horn and a very long 35mm 3M screw as well as a hex nut we are able to push the dart forward into the fly wheel. There is a guide rail on the design that is shorter than all the other openings.
 
 (Insert image when printed)
 
@@ -120,6 +120,8 @@ We also learned lessons in work time usage. Pushing a large project twords the e
 - 1 Qunqi L298N Motor Driver (Can be found on Amazon) $4 Model Num: MK-050-2
 - 1 Qunqi 400 tie Point Experiment Mini Breadboard (Can be found on Amazon) $6 Model Num: 8541770369
 - OWOFYDR 100 pcs 5mm Green LED Diode Lights (Only need 2 out of 100, Can be found on Amazon) $0.14 per LED, 7 per pack Model Num:OWO-LED-1008
+- REV 35 mm Screw (REV Robotics online store) $0.23 for one, 11.50 for pack Model Num: REV-41-1125-PK50 
+- REV M3 nut (REV Robotics online store) $0.055 for one, 5.50 for pack Model Num: REV-41-1126-PK100
 
 ### Non-Specific Parts
 
@@ -134,13 +136,60 @@ We also learned lessons in work time usage. Pushing a large project twords the e
 - Heat Gun (If using shrink wrap)
 - Drill
 - 3D printer
+- Wire Nuts
+- Lot's or patience
+- 9v Power Source
 
 ## Instructions on how to make it
 
+First off, print all of the parts in the CAD file. This should take a while, but it is all needed. We recommend using ABS or likewise filiments like ASA. The only part that needs to be duplicated is the wheel, we need two of those. Depending on your 3D printers limitations you may need supports on some places and not others.
+
+### Flywheel
+
+Lets make the flywheel!
+
+This part is kind of hard so pay attention. 
+
+First lets get the motors mounted. This part is kind of awkward so you may need a helping hand. You need to hold the motors in the holes at the top of the flywheel frame so that it barely pokes out. Then hot glue this down. Repeat this on the other side.
+
+Should look like this:
+
+![IMG_7484](https://user-images.githubusercontent.com/90796319/236637711-ae5e74a7-557b-4b4b-a5ba-bf6edce3fdc8.jpg)
 
 
+Now the wheels are friction fit so it will be hard to put those on. Just push them on so that the side with the extra nub is pointing down. Refer to the image above. At this point I recommend making sure that when you push through nerf darts they actually contact the wheels. If they do then we can move on! If not you may need to re-glue the motors.
+
+Now you need to solder wires to the little tabs on the motors. Simply solder any wire on and try not to bend the tabs because they are very fragile. 
+
+Now let's add the magazine. You simply need to glue this peice on to the rail the nerf dart and lay in. You can see where on the picture below.
+
+![IMG_7486](https://user-images.githubusercontent.com/90796319/236637957-ba5493f5-0131-4cb0-9d17-55a9cc7a80ef.jpg)
+
+Now here is where we got droven crazy. You need to put your servo horn on your servo and fish it into the casing on the mag so that the horn is facing down. Now you need to turn the servo horn in a way so that you can put a screw in it, however you do not want it to enter the actual mag yet. Now slowly start turning the hex nut up the servo horn and then place it in the guide rail like the image below:
+
+![IMG_7487](https://user-images.githubusercontent.com/90796319/236638454-7f8b14ac-03b8-4b92-bc51-8e96bebc6e0f.jpg)
+
+Then lift the screw and place it in the guide rail. Slowly tighten the nut until the nut and screw head are both nearly touching the servo horn. It should look like this:
+
+![IMG_7488](https://user-images.githubusercontent.com/90796319/236638685-70ab4740-ee16-4452-b838-63852ffd313e.jpg)
+
+## Wiring
+
+Now using the wiring diagram shown above you need to wire everything together. It's gonna suck, but trust me it will be worth it. This will probably be most of your time though. Here is a couple photo's of the internals. 
+
+![IMG_7490](https://user-images.githubusercontent.com/90796319/236638865-d2ae459d-eea6-4d94-bd0a-724d4f91b943.jpg)
 
 
+![IMG_7489](https://user-images.githubusercontent.com/90796319/236638871-105eca3e-c3a3-4d4c-b98b-56272b1de57f.jpg)
+
+This should give a general idea on how to lay it out however feel free to customize placements.
+
+Here you can also mount the turnS servo that connects to pin 4. This should be mounted to the top of the pyramid.
+Also put the number pad on the outside and drill a hole next to it for you to put your switch.
+
+![IMG_7485](https://user-images.githubusercontent.com/90796319/236638974-d58c3481-1675-422e-8aec-b6fef2787c54.jpg)
+
+Now all you have left is to place the flywheel on the top of the turnS servo. We recommend to fill the hole for mounting with hot glue and the putting it on. Once doing this and then wiring it up your all done!
 
 
 
