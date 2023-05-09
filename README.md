@@ -205,6 +205,11 @@ Now all you have left is to place the flywheel on the top of the turnS servo. We
 **Figure 13 (Pyramid and Number Pad)**
 ![IMG_7485](https://user-images.githubusercontent.com/90796319/236638974-d58c3481-1675-422e-8aec-b6fef2787c54.jpg)
 
+**Figure 14 (Circuit Diagram)**
+![image_6483441](https://github.com/ctimmons25/CapstoneProject/assets/90796319/f550824c-84b9-495a-b987-9ef7224f168a)
+
+
+
 
 
 
