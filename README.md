@@ -52,7 +52,7 @@ With all these different servos, motors, controllers and etc. we need a diagram 
 
 ### Software Diagram
 
-**Figure 7** shows a diagram to show what the arduino is thinking throughout the entire process after you turn the turret on.
+**Figure 7** shows a diagram to show what the arduino is thinking throughout the entire process after you turn the turret on. They keypad was also a major device we had to learn how to use, and that can be seen in **Figure 15**.
 
 ## Design Evaluation
 
