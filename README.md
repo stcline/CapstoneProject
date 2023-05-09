@@ -208,6 +208,39 @@ Now all you have left is to place the flywheel on the top of the turnS servo. We
 **Figure 14 (Circuit Diagram)**
 ![image_6483441](https://github.com/ctimmons25/CapstoneProject/assets/90796319/f550824c-84b9-495a-b987-9ef7224f168a)
 
+**Figure 15 (Keypad Code)**
+`
+void getNumbers()
+{ 
+  // Checks if there is a custom key entered
+  char customKey=customKeypad.getKey();
+  // If there is then it continues
+  if (customKey){
+    // If custom key isn't A than add it to the variable enteredNums
+    if (customKey != 'A'){
+      enteredNums = enteredNums+customKey;
+      // To turn on the LEDS
+      if (l1ON == false){
+        digitalWrite(led1, HIGH);
+        l1ON = true;
+      }
+      else{
+        digitalWrite(led2, HIGH);
+      }
+    }
+    // If the button pressed is A than turn entered nums into an interger, and adjust lights
+    if (customKey == 'A'){
+      x = enteredNums.toInt();
+      enterNums = true;
+      l1ON = false;
+      digitalWrite(led1, LOW);
+      digitalWrite(led2, LOW);
+    }
+  }
+  
+}
+
+`
 
 
 
