@@ -150,12 +150,15 @@ void shootEmJohn(int a)
 {
   //Turn servo
   turnS.write(a);
+  //Start motors
   digitalWrite(in1, HIGH);
   digitalWrite(in2, LOW);
   analogWrite(ena, 255);
   delay(1000);
+  //Push dart
   shootS.write(160);
   delay(1000);
+  //Return to original position
   turnS.write(90);
   shootS.write(35);
   analogWrite(ena,0);
