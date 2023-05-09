@@ -209,7 +209,7 @@ Now all you have left is to place the flywheel on the top of the turnS servo. We
 ![image_6483441](https://github.com/ctimmons25/CapstoneProject/assets/90796319/f550824c-84b9-495a-b987-9ef7224f168a)
 
 **Figure 15 (Keypad Code)**
-`
+```
 void getNumbers()
 { 
   // Checks if there is a custom key entered
@@ -240,7 +240,7 @@ void getNumbers()
   
 }
 
-`
+```
 
 
 
