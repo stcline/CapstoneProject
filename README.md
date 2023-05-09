@@ -48,7 +48,7 @@ The pyramid and base is used to mount the flywheel and magazine as well as hide 
 
 With all these different servos, motors, controllers and etc. we need a diagram to see the wiring! Here you can see the pins everything is connected to and where it goes.
 
-(Insert circuit diagram when edited)
+**Figure 14** shows the circuit diagram.
 
 ### Software Diagram
 
