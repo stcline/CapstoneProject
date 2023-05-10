@@ -13,74 +13,74 @@ May 10, 2023
 
 ![Untitled drawing (2)](https://user-images.githubusercontent.com/90726645/236871440-a2fec402-5959-4bba-9a42-2d1cc830dc2c.png)
 
-Our device is an automated turret that can sense someone and turn to shoot them. When turning the system on you must first enter a distance on the number pad. This distance is how far the sensor is from the point of rotation, or in other terms the center of the pyramid. This distance is later used for some simple trigonometry. After doing this the turret will start working. If you walk in front of the distance sensor it will take the distance you are away from the sensor as well as the inputed distance you entered earlier to find the centeral angle. In order to find the centeral angle we use inverse tangent or arc tangent.
+Our device is an automated turret that can sense someone and turn to shoot them. When turning the system on, you must first enter a distance on the number pad. This distance is how far the sensor is from the point of rotation, or, in other words, the center of the pyramid. This distance is later used for some simple trigonometry. After doing this, the turret will start working. If you walk in front of the distance sensor, it will take the distance you are away from the sensor as well as the input distance you entered earlier to find the centeral angle. In order to find the centeral angle, we use the inverse tangent or arc tangent.
 
 The equation looks something like:
 
 **arctan(Sensed Distance/Inputted Distance) = Centeral Angle in Radians**
 
-Diagram of how it works can be seen in **Figure 1**. 
+A diagram of how it works can be seen in **Figure 1**. 
 
-That is all the basic angle finding, but what about the rest? Using the angle we get above we turn a servo to that angle, this should turn the actual turret part twords the target. Then we start spinning the flywheel on the turret (two really fast wheels) in opposite directions that way when we feed through a nerf dart it can shoot the dart. Using another servo we push the pre-loaded dart forward into the flywheel propelling it forward.
+That is all the basic angle finding, but what about the rest? Using the angle we get above, we turn a servo to that angle, this should turn the actual turret part toward the target. Then we start spinning the flywheel on the turret (two really fast wheels) in opposite directions so that when we feed through a nerf dart, it can shoot the dart. Using another servo, we push the pre-loaded dart forward into the flywheel, propelling it forward.
 
-Refer to **figure 2** to see a flowchart of how our project works. 
+Refer to **Figure 2** to see a flowchart of how our project works. 
 
 
 ## System Details
 
-Many parts of this project were manufactured using a 3D printer and with many unique parts you may want to know what they are an what they do!
+ Many parts of this project were manufactured using a 3D printer, and with so many unique parts, you may want to know what they are and what they do! 
 
 ### Flywheel
 
-The flywheel is a simple device that simply has two motors that spin up wheels. When the nerf dart is pushed into these wheels it is propelled forward. This system is very similar to the real nerf flywheels used in some nerf guns.  **Figure 3** shows a visual of the flywheel design. 
+The flywheel is a simple device that simply has two motors that spin wheels. When the nerf dart is pushed into these wheels, it is propelled forward. This system is very similar to the real nerf flywheels used in some nerf guns.  **Figure 3** shows a visual of the flywheel design. 
 
 ### Magazine
 
-The magazine is what holds the nerf darts as well as pushes the darts into the flywheel. This piece is directly mounted to the flywheel. Using one servo and a custom designed servo horn and a very long 35mm 3M screw as well as a hex nut we are able to push the dart forward into the fly wheel. There is a guide rail on the design that is shorter than all the other openings. Refer to **Figure 4**.
+The magazine is what holds the nerf darts as well as pushes the darts into the flywheel. This piece is directly mounted to the flywheel. Using one servo, a custom-designed servo horn, a very long 35mm 3M screw, and a hex nut, we are able to push the dart forward into the fly wheel. There is a guide rail in the design that is shorter than all the other openings Refer to **Figure 4**.
 
 
 ### Pyramid and Base
 
-The pyramid and base is used to mount the flywheel and magazine as well as hide some of the wires and the arduino mega used for this project. Here is where we put the motor controller, battery pack, arduino mega, and where we mount the turning servo. Here we also have mounted the number pad and the off and on switch. Here we also have our LED's that tell you what's happening. **Figure 5** shows the pyramid and base. 
+The pyramid and base are used to mount the flywheel and magazine as well as hide some of the wires and the Arduino Mega used for this project. Here is where we put the motor controller, battery pack, Arduino Mega, and the turning servo. Here we also have mounted the number pad and the off and on switch. Here we also have our LEDs that tell you what's happening. **Figure 5** shows the pyramid and base. 
 
 
 ### Circuit Schematic
 
-With all these different servos, motors, controllers and etc. we need a diagram to see the wiring! Here you can see the pins everything is connected to and where it goes.
+With all these different servos, motors, controllers, etc., we need a diagram to see the wiring! Here you can see the pins everything is connected to and where it goes.
 
 **Figure 14** shows the circuit diagram.
 
 ### Software Diagram
 
-**Figure 7** shows a diagram to show what the arduino is thinking throughout the entire process after you turn the turret on. They keypad was also a major device we had to learn how to use, and that can be seen in **Figure 15**.
+**Figure 7** shows a diagram to show what the Arduino is thinking throughout the entire process after you turn the turret on. They keypad was also a major device we had to learn how to use, as can be seen in **Figure 15**.
 
 ## Design Evaluation
 
-For this capstone there was many requirements you had to hit to get a good grade. Here are the various categories and how we think we did.
-
+For this capstone, there were many requirements you had to meet to get a good grade. Here are the various categories and how we think we did. 
+ 
 ### Output Display
 
-For our output we used two LED's that show if you have entered the numbers on the number pad, if you pressed A on the number pad to start normal operation, and if a target is sensed. We think we hit this requirement fairly well however we didn't use any very complex parts and thus we think we did hit this category however it can be approved on.
+For our output, we used two LEDs that show if you have entered the numbers on the number pad, if you pressed A on the number pad to start normal operation, and if a target is sensed. We think we hit this requirement fairly well, but we didn't use any very complex parts, so we think we did hit this category, but it can be approved.
 
 ### Manual User Input
 
-For this we used a keypad which overall is fairly difficult to use. Using this with it also effecting the entire system as well as being shows on the LED's we think we hit this catagory well. We think this could be approved on however if we created a manual mode as well as a sentery mode.
+For this, we used a keypad, which is overall fairly difficult to use. Using this, with it also effecting the entire system as well as being shown on the LEDs, we think we hit this category well. We think this could be approved, however, if we created a manual mode as well as a sentry mode.
 
 ### Automatic Sensor
 
-For our automatic sensor we used a super sonic distance sensor which uses sound to find distance. We think we hit this category well and because of how important this single sensor is to the entire system we think we hit this requitement fairly well.
+For our automatic sensor, we used a supersonic distance sensor, which uses sound to find distance. We think we hit this category well, and because of how important this single sensor is to the entire system, we think we hit this requirement fairly well.
 
 ### Actuators, Mechanisms, and Hardware
 
-Here we used many different actuators. Our project used two micro servos as well as two DC motors. There are all vital parts of our project. We also had a cleverly designed mechanism for pushing the nerf darts as well. We think we hit this right on the dot and that we did very good here.
+Here, we used many different actuators. Our project used two micro servos as well as two DC motors. They are all vital parts of our project. We also had a cleverly designed mechanism for pushing the nerf darts. We think we hit this right on the dot and that we did very well here.
 
 ### Logic, Processing, and Control
 
-We have a lot of code for this project. We are also using many libraries effectivly to simplify our code too. In our code we also have some hard calculations such as finding the centeral angle using arctangent which seemed to be very difficult for the arduino to understand. We think we did fairly well here not only making simple concise code, but also using various hard calclations.
+We have a lot of code for this project. We are also using many libraries effectively to simplify our code. In our code, we also have some hard calculations, such as finding the centeral angle using arctangent, which seemed to be very difficult for the Arduino to understand. We think we did fairly well here, not only in making simple, concise code but also in using various hard calculations.
 
 ### Other adjustments
 
-There was also many other adjustments that could positively or negatively effect your grade. Here we will mention only things I think we did good/bad on, but nothing we don't think will effect us.
+There were also many other adjustments that could positively or negatively affect your grade. Here we will mention only things I think we did well or badly, but nothing we don't think will affect us.
 
 Construction, Quality, Aesthetics, and Visual Appeal
 
@@ -92,7 +92,7 @@ We think we will get extra points here, because we put in a lot of effort to get
 
 Cost
 
-We are almost certain we will get this because our project as a total cost between only 30 and 40 dollars which seems to be the lowest in the class.
+We are almost certain we will get this because our project as a total cost between only 40 and 50 dollars which seems to be the lowest in the class.
 
 ## Lessons Learned
 
